@@ -1,0 +1,83 @@
+.dashboard-container {
+  background-color: lavender;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.search-bar {
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.contacts-col {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.contact-item {
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.contact-item:hover {
+  background-color: #e9ecef;
+}
+
+.contact-avatar {
+  border: 2px solid #007bff;
+}
+
+.chat-col {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  height: 100%;
+}
+
+.chat-header {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.chat-avatar {
+  border: 2px solid #fff;
+}
+
+.chat-window {
+  height: 400px;
+  overflow-y: scroll;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  max-width: 70%;
+}
+
+.message.sent {
+  background-color: #007bff;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.message.received {
+  background-color: #e9ecef;
+  align-self: flex-start;
+}
+
+.chat-input-group {
+  border-radius: 20px;
+}
+
+.chat-input {
+  border-radius: 20px 0 0 20px;
+  padding: 10px;
+}
