@@ -18,14 +18,12 @@ function App() {
   };
 
   return (
-    <Router>
       <Routes>
         <Route path="/" element={<Home isLoggedIn={isLoggedIn} handleLogout={handleLogout} />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<DashboardPage isLoggedIn={isLoggedIn} handleLogout={handleLogout} />} />
       </Routes>
-    </Router>
   );
 }
 
