@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { signUp } from '../../api';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
+import useSignup from '../../hooks/useSignup';
 
 function SignUp() {
   const [formData, setFormData] = useState({ fullName:'', username: '', password: '', confirmPassword:'', gender:'' });
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
+  const {loading, signup} = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    // await signUp(formData);
+    await signup(formData);
     // navigate('/dashboard'); // Redirect to dashboard
   };
 

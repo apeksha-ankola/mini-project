@@ -6,23 +6,27 @@ import SignUp from "./Components/Signup/Signup";
 import DashboardPage from './Components/Dashboard/DashboardPage';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    setIsLoggedIn(false);
-  };
+  // const handleLogout = () => {
+  //   // localStorage.removeItem('token');
+  //   setIsLoggedIn(false);
+  // };
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
+  // const handleLogin = () => {
+  //   setIsLoggedIn(true);
+  // };
 
   return (
       <Routes>
-        <Route path="/" element={<Home isLoggedIn={isLoggedIn} handleLogout={handleLogout} />} />
+        {/* <Route path="/" element={<Home isLoggedIn={isLoggedIn} handleLogout={handleLogout} />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/dashboard" element={<DashboardPage isLoggedIn={isLoggedIn} handleLogout={handleLogout} />} />
+        <Route path="/dashboard" element={<DashboardPage isLoggedIn={isLoggedIn} handleLogout={handleLogout} />} /> */}
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login  />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
   );
 }

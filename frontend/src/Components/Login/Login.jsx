@@ -10,7 +10,7 @@ function Login({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { data } = await login(formData);
-    localStorage.setItem('token', data.token);
+    // localStorage.setItem('token', data.token);
     onLogin();
     navigate('/dashboard'); // Redirect to dashboard
   };
