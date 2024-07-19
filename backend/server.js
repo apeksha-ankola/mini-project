@@ -5,6 +5,7 @@ import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 // npm run server
 
@@ -15,6 +16,7 @@ dotenv.config();
 
 
 // middlewares
+app.use(cors());
 app.use(express.json());
 // app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
