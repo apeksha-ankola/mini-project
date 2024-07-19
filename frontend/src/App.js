@@ -4,6 +4,7 @@ import Home from "./Components/Home'/Home";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/Signup/Signup";
 import DashboardPage from './Components/Dashboard/DashboardPage';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,12 +19,15 @@ function App() {
   };
 
   return (
-      <Routes>
-        <Route path="/" element={<Home isLoggedIn={isLoggedIn} handleLogout={handleLogout} />} />
-        <Route path="/login" element={<Login onLogin={handleLogin} />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/dashboard" element={<DashboardPage isLoggedIn={isLoggedIn} handleLogout={handleLogout} />} />
-      </Routes>
+      <>
+        <Routes>
+          <Route path="/" element={<Home isLoggedIn={isLoggedIn} handleLogout={handleLogout} />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/dashboard" element={<DashboardPage isLoggedIn={isLoggedIn} handleLogout={handleLogout} />} />
+        </Routes>
+        <Toaster />
+      </>
   );
 }
 

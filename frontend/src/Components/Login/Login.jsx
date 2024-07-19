@@ -38,7 +38,10 @@ function Login({ onLogin }) {
       <Button variant="info" type="submit" className="mt-2">
         Login
       </Button>
+      <br />
+      <a href="/signup"> Dont have an account, signup here</a>
     </Form>
+
   );
 }
 
