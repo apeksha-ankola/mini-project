@@ -4,17 +4,28 @@ import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 
 function SignUp() {
-  const [formData, setFormData] = useState({ username: '', password: '' });
+  const [formData, setFormData] = useState({ fullName:'', username: '', password: '', confirmPassword:'', gender:'' });
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signUp(formData);
-    navigate('/dashboard'); // Redirect to dashboard
+    console.log(formData);
+    // await signUp(formData);
+    // navigate('/dashboard'); // Redirect to dashboard
   };
 
   return (
     <Form onSubmit={handleSubmit} className="p-3">
+
+      <Form.Group controlId="formBasicFullName">
+        <Form.Control
+          type="text"
+          placeholder="fullName"
+          value={formData.fullName}
+          onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+        />
+      </Form.Group>
+
       <Form.Group controlId="formBasicUsername">
         <Form.Control
           type="text"
@@ -30,6 +41,24 @@ function SignUp() {
           placeholder="Password"
           value={formData.password}
           onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formBasicConfirmPassword">
+        <Form.Control
+          type="password"
+          placeholder="Confirm Password"
+          value={formData.confirmPassword}
+          onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formBasicGender">
+        <Form.Control
+          type="text"
+          placeholder="Gender"
+          value={formData.gender}
+          onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
         />
       </Form.Group>
 
