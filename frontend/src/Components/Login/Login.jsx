@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { login } from '../../api';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
+import useLogin from '../../hooks/useLogin';
 
-function Login({ onLogin }) {
-  const [formData, setFormData] = useState({ username: '', password: '' });
-  const navigate = useNavigate();
+function Login() {
+  const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+  // const navigate = useNavigate();
+
+  const {loading, login} = useLogin();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { data } = await login(formData);
-    // localStorage.setItem('token', data.token);
-    onLogin();
-    navigate('/dashboard'); // Redirect to dashboard
+    await login({username,password});
   };
 
   return (
@@ -21,8 +21,8 @@ function Login({ onLogin }) {
         <Form.Control
           type="text"
           placeholder="Username"
-          value={formData.username}
-          onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+          value={username}
+          onChange={(e) => setUsername( e.target.value)}
         />
       </Form.Group>
 
@@ -30,8 +30,8 @@ function Login({ onLogin }) {
         <Form.Control
           type="password"
           placeholder="Password"
-          value={formData.password}
-          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+          value={password}
+          onChange={(e) => setPassword( e.target.value)}
         />
       </Form.Group>
 

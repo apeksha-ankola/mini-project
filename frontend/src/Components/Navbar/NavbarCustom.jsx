@@ -4,12 +4,16 @@ import React from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../images/NLP-Talks.png';
+import useLogout from '../../hooks/useLogout';
+import { useAuthContext } from '../../context/AuthContext';
 
-function NavbarCustom({ isLoggedIn, handleLogout }) {
+function NavbarCustom({}) {
   const navigate = useNavigate();
+  const {loading, logout} = useLogout();
+  const {authUser} = useAuthContext();
 
   const handleSignOut = () => {
-    handleLogout();
+    logout();
     navigate('/');
   };
 
@@ -27,7 +31,7 @@ function NavbarCustom({ isLoggedIn, handleLogout }) {
           NLP Talks
         </Navbar.Brand>
         <Nav className="me-auto">
-          {isLoggedIn ? (
+          {authUser ? (
             <>
               <Nav.Link href="/dashboard">Dashboard</Nav.Link>
               <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>

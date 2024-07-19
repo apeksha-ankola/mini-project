@@ -52,7 +52,7 @@ function DashboardPage({ isLoggedIn, handleLogout }) {
 
   return (
     <div>
-      <NavbarCustom isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+      <NavbarCustom />
       <Container className="dashboard-container mt-3">
         <Row className="mb-3">
           <Col md={8}>
